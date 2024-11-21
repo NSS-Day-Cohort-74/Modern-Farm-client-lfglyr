@@ -1,4 +1,5 @@
 import { addPlant, usePlants } from "./field.js"
+import { harvestPlants } from "./harvester.js"
 import { createPlan } from "./plan.js"
 import { createAsparagus } from "./seeds/asparagus.js"
 import { createCorn } from "./seeds/corn.js"
@@ -78,4 +79,5 @@ DOM <- catalogHTML
 // console.log(fieldArray)
 
 plantSeeds(yearlyPlan)
-console.log(usePlants())
+const seedsInFieldArray = usePlants()
+console.log(harvestPlants(seedsInFieldArray))
