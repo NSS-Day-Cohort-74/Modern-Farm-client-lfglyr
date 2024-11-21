@@ -3,12 +3,14 @@
 const growingInFieldArray = []
 //adds seed objects to growingInFieldArray
 export const addPlant = (seedObject) => {
-    if (seedObject.isArray()) {
+    if (Array.isArray(seedObject)) {
         for (const plantObj of seedObject) {
             growingInFieldArray.push(plantObj)
         }
+    } else {
+        growingInFieldArray.push(seedObject)
     }
-    growingInFieldArray.push(seedObject)
+
 }
 
 //return copy of array

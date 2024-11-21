@@ -1,4 +1,7 @@
+import { addPlant, usePlants } from "./field.js"
 import { createPlan } from "./plan.js"
+import { createAsparagus } from "./seeds/asparagus.js"
+import { createCorn } from "./seeds/corn.js"
 
 console.log("Welcome to the main module")
 
@@ -40,4 +43,9 @@ catalogHTML = catalog(fieldArrays)
 DOM <- catalogHTML
 */
 
-
+const asparagusSeed = createAsparagus()
+const cornSeed = createCorn()
+addPlant(asparagusSeed)
+addPlant(cornSeed)
+const fieldArray = usePlants()
+console.log(fieldArray)
