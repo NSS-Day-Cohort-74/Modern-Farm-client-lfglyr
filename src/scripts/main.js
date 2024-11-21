@@ -1,3 +1,4 @@
+import { Catalog } from "./catalog.js"
 import { addPlant, usePlants } from "./field.js"
 import { harvestPlants } from "./harvester.js"
 import { createPlan } from "./plan.js"
@@ -7,10 +8,13 @@ import { plantSeeds } from "./tractor.js"
 
 
 const yearlyPlan = createPlan() // returns 3 arrays with randomized crop order
-plantSeeds(yearlyPlan)
+plantSeeds(yearlyPlan) //
 const seedsInFieldArray = usePlants()
 const harvestedPlantArray = harvestPlants(seedsInFieldArray)
+const finalHTML = Catalog(harvestedPlantArray)
 
+const targetElement = document.querySelector(".container")
+targetElement.innerHTML = finalHTML
 
 /*
 MAIN ALGORITHM
@@ -18,7 +22,8 @@ yearlyPlan = createPlan
 plantSeeds(yearlyPlan) -- tractor creates plants and puts plants into field.
 fieldArrays = usePlants()
 harvestedPlants = harvestPlants(fieldArrays)
-catalogHTML = catalog(harvestedPlants)
+
+-> catalogHTML = catalog(harvestedPlants)
 DOM <- catalogHTML
 */
 
