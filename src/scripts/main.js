@@ -2,6 +2,7 @@ import { addPlant, usePlants } from "./field.js"
 import { createPlan } from "./plan.js"
 import { createAsparagus } from "./seeds/asparagus.js"
 import { createCorn } from "./seeds/corn.js"
+import { plantSeeds } from "./tractor.js"
 
 console.log("Welcome to the main module")
 
@@ -69,9 +70,12 @@ DOM <- catalogHTML
 */
 
 // testing field.js functions
-const asparagusSeed = createAsparagus()
-const cornSeed = createCorn()
-addPlant(asparagusSeed)
-addPlant(cornSeed)
-const fieldArray = usePlants()
-console.log(fieldArray)
+// const asparagusSeed = createAsparagus()
+// const cornSeed = createCorn()
+// addPlant(asparagusSeed)
+// addPlant(cornSeed)
+// const fieldArray = usePlants()
+// console.log(fieldArray)
+
+plantSeeds(yearlyPlan)
+console.log(usePlants())
