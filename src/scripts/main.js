@@ -5,4 +5,39 @@ console.log("Welcome to the main module")
 // import createPlan() from plan.js into the MAin MOdule. createPlan should return a value.
 const yearlyPlan = createPlan() // returns 3 arrays with randomized crop order
 
+// create a module for each seed type with functions using createCorn syntax
+// soybean, corn, sunflower, asparagus, wheat, potato
+// each function should return an object
+// each object should have a type, height, output property.
+// Corn should return an arrray with two objects with identical properties
+
+
+// create a field.js module 
+// define an empty array to store plants growing in field, do not export array
+// export function addPlant
+// addPlant accepts a seed Object as input, function adds seed to the field.
+// since cornseed is an array of two corns, use isArray method to check if array to iterate and add to field array.
+// Define an export function named usePlants that returns copy of array of plants
+
+
+// create a tractor.js module 
+// import in the plant modules, import addPlant function
+// export a plantSeeds function that accepts the yearlyPlan variable as a parameter
+// iterate through all arrays using nested forof loops
+// as we are going through the planting plan, invoke the createAsparagus-type function to get seed.
+// take seed and add to array of plants using the addPlant function from field.js
+
+// create catalog.js module, export a Catalog function
+// catalog function accepst the usePlants array from field.js
+// iterate through array, generate HTML, return HTML to be added to the DOM.
+
+// MAIN ALGORITHM
+/*
+yearlyPlan = createPlan
+plantSeeds(yearlyPlan) -- tractor creates plants and puts plants into field.
+fieldArrays = usePlants()
+catalogHTML = catalog(fieldArrays)
+DOM <- catalogHTML
+*/
+
 
