@@ -1,6 +1,7 @@
 
 //empty array
 const growingInFieldArray = []
+
 //adds seed objects to growingInFieldArray
 export const addPlant = (seedObject) => {
     if (Array.isArray(seedObject)) {
@@ -18,3 +19,4 @@ export const usePlants = () => {
     const growingInFieldCopy = growingInFieldArray.map((seed) => (seed)) //may not work
     return growingInFieldCopy
 }
+

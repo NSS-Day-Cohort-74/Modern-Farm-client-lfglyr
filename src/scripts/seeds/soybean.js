@@ -1,7 +1,7 @@
 export const createSoybean = () => {
     const soybeanObject =
     {
-        type: "soybean",
+        type: "Soybean",
         height: 20,
         output: 4
     }

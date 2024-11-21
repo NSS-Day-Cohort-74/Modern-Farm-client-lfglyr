@@ -16,12 +16,14 @@ const seedGenerators = {
     wheat: createWheat
 }
 /*
-yearlyPlan = [
-        ["Corn", x, x, x, x, x] index 0
+yearlyPlan = 
+    [
+        [Corn", x, x," x, x, x] index 0
         [x, x, x, x, x, x]
         [x, x, x, x, x, x]
-        ]
+    ]
 */
+
 export const plantSeeds = (yearlyPlan) => { //intaking yearly plan
     for (const cropRow of yearlyPlan) { //iterating yearly plan
         // cropRow = ["Corn", x, x, x, x, x] (first itteration)- index 0

@@ -8,7 +8,7 @@ export const harvestPlants = (seedsInFieldArray) => {
     // CORN IS THE EXCEPTION -- no matter the output property, only one corn object gets added to harvestArray
 
     for (const seedObject of seedsInFieldArray) {
-        if (seedObject.type === "corn") {
+        if (seedObject.type === "Corn") {
             for (let i = 0; i < seedObject.output / 2; i++)
                 harvestArray.push(seedObject)
         } else {
