@@ -1,7 +1,7 @@
 .container {
     display: flex;
     flex-wrap: wrap;
-    justify-content:end;
+    justify-content: end;
 }
 
 .container>section {
@@ -16,7 +16,5 @@
 .container>section:hover {
     color: blue;
     background-color: brown;
-    
-}
 
-/*  */
+}
