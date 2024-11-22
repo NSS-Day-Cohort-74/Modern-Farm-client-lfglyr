@@ -1,20 +1,18 @@
 import { Catalog } from "./catalog.js"
-import { addPlant, usePlants } from "./field.js"
+import { usePlants } from "./field.js"
 import { harvestPlants } from "./harvester.js"
 import { createPlan } from "./plan.js"
-import { createAsparagus } from "./seeds/asparagus.js"
-import { createCorn } from "./seeds/corn.js"
 import { plantSeeds } from "./tractor.js"
 
 
 const yearlyPlan = createPlan() // returns 3 arrays with randomized crop order
-plantSeeds(yearlyPlan) //
-const seedsInFieldArray = usePlants()
-const harvestedPlantArray = harvestPlants(seedsInFieldArray)
-const finalHTML = Catalog(harvestedPlantArray)
+plantSeeds(yearlyPlan) // send yearly plan to tractor.js
+const seedsInFieldArray = usePlants() // retrieve planted field from field.js
+const harvestedPlantArray = harvestPlants(seedsInFieldArray) // send field array to be harvested
+const finalHTML = Catalog(harvestedPlantArray) // send harvested plants to the Catalog, return html
 
 const targetElement = document.querySelector(".container")
-targetElement.innerHTML = finalHTML
+targetElement.innerHTML = finalHTML // send html to DOM
 
 /*
 MAIN ALGORITHM
@@ -23,8 +21,8 @@ plantSeeds(yearlyPlan) -- tractor creates plants and puts plants into field.
 fieldArrays = usePlants()
 harvestedPlants = harvestPlants(fieldArrays)
 
--> catalogHTML = catalog(harvestedPlants)
-DOM <- catalogHTML
+catalogHTML = catalog(harvestedPlants)
+send catalogHTML to DOM with .innerHTML property
 */
 
 /* --------------------------------------------------------------------------- */
@@ -75,3 +73,4 @@ PROJECT PROCESS NOTES:
 // create catalog.js module, export a Catalog function
 // catalog function accepst the usePlants array from field.js
 // iterate through array, generate HTML, return HTML to be added to the DOM.
+// COMPLETED
