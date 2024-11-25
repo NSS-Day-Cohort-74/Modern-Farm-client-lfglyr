@@ -9,19 +9,21 @@ export const barn = () => {
             return storageBarn.pop()
         },
         peek: () => {
-            return storageBarn.peek().type
+            return storageBarn[storageBarn.length - 1].type
         },
         isEmpty: () => {
-            return storageBarn.isEmpty()
+            let empty = true
+            if (storageBarn.length != 0) {
+                empty = false
+            }
+            return empty
         },
 
     }
 }
 
-console.log(barn.isEmpty)
-barn.push("asparagus")
-barn.push("asparagus")
-barn.push("asparagus")
-barn.push("asparagus")
+
+
+
 
 

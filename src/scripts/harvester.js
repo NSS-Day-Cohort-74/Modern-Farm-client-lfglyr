@@ -1,4 +1,4 @@
-
+import { barn } from "./storageBarn.js";
 
 //returns array of objects
 export const harvestPlants = (seedsInFieldArray) => {
@@ -9,17 +9,18 @@ export const harvestPlants = (seedsInFieldArray) => {
     let id = 1;
     for (const seedObject of seedsInFieldArray) {
         if (seedObject.type === "Corn") {
-            for (let i = 0; i < seedObject.output / 2; i++)
+            for (let i = 0; i < seedObject.output / 2; i++) {
                 seedObject.id = id
-            id++
-            harvestArray.push(seedObject)
-            console.log(seedObject.id)
+                id++
+                barn().push(seedObject)
+                harvestArray.push(seedObject)
+            }
         } else {
             for (let i = 0; i < seedObject.output; i++) {
                 seedObject.id = id
                 id++
+                barn().push(seedObject)
                 harvestArray.push(seedObject)
-                console.log(seedObject.id)
             }
         }
     }

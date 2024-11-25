@@ -3,7 +3,6 @@ import { usePlants } from "./field.js"
 import { harvestPlants } from "./harvester.js"
 import { createPlan } from "./plan.js"
 import { plantSeeds } from "./tractor.js"
-import { barn } from "./storageBarn.js"
 
 
 const yearlyPlan = createPlan() // returns 3 arrays with randomized crop order
@@ -14,8 +13,6 @@ const finalHTML = Catalog(harvestedPlantArray) // send harvested plants to the C
 
 const targetElement = document.querySelector(".container")
 targetElement.innerHTML = finalHTML // send html to DOM
-
-barn()
 
 
 /*
