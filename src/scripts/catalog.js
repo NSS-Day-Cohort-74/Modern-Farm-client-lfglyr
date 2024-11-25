@@ -26,16 +26,16 @@ export const Catalog = (harvestedPlantArray) => {
     }
 
 
-// CHALLENGE: DISPLAY PLANT QUANTITY 
+    // CHALLENGE: DISPLAY PLANT QUANTITY 
 
-// count objects and put into plantCount object
-// if not in plantCount object, add new property with value of one
-// if in plantCount, increment value by one.
+    // count objects and put into plantCount object
+    // if not in plantCount object, add new property with value of one
+    // if in plantCount, increment value by one.
 
-const plantCount = {} // will hold counts of plants
+    const plantCount = {} // will hold counts of plants
 
     for (const plantObject of harvestedPlantArray) {
-        
+
         const plantType = plantObject.type.toLowerCase() // grab the plant type and convert to lowercase
 
         if (plantCount.hasOwnProperty(plantType)) {
@@ -45,7 +45,7 @@ const plantCount = {} // will hold counts of plants
         }
     }
 
-// Build Table HTML after plant display
+    // Build Table HTML after plant display
     plantHTML += `
     <div class="plant-table">
         <table>
@@ -54,15 +54,15 @@ const plantCount = {} // will hold counts of plants
                 <th>Quantity</th>
             </tr>`
 
- // iterate through plantCount object
-   for (const key in plantCount) {
-    plantHTML += `
+    // iterate through plantCount object
+    for (const key in plantCount) {
+        plantHTML += `
         <tr>
             <td>${key}</td>
             <td>${plantCount[key]}</td>
         </tr>
     `
-   }        
+    }
 
     plantHTML += `
             </table>

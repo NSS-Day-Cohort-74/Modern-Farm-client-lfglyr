@@ -6,14 +6,20 @@ export const harvestPlants = (seedsInFieldArray) => {
     // iterate through seedsInFieldArray, get the output property value of each seedObject
     // output property determines number of plant objects to push to harvestArray (duplicate)
     // CORN IS THE EXCEPTION -- no matter the output property, only one corn object gets added to harvestArray
-
+    let id = 1;
     for (const seedObject of seedsInFieldArray) {
         if (seedObject.type === "Corn") {
             for (let i = 0; i < seedObject.output / 2; i++)
-                harvestArray.push(seedObject)
+                seedObject.id = id
+            id++
+            harvestArray.push(seedObject)
+            console.log(seedObject.id)
         } else {
             for (let i = 0; i < seedObject.output; i++) {
+                seedObject.id = id
+                id++
                 harvestArray.push(seedObject)
+                console.log(seedObject.id)
             }
         }
     }
@@ -34,30 +40,30 @@ export const harvestPlants = (seedsInFieldArray) => {
             }
         }
     )
-    
+
     return sortedHarvestArray
 
     // sort uses a callback function to determine proper order of a, b. .sort expects a number: -1, 0, 1
 
     // callback function using localeCompare(): (a, b) => a.type.localeCompare(b.type)   
-                //        ( cornObject, asparagusObject) => "Corn".localeCompare("Asparagus")
-                //                                                .localeCompare() returns a number. 
-                //                                                 Negative(falsy) if a comes before b, 0 if a === b, 
-                //                                                 positive(truthy) if a comes after b
-                //                                      => Corn > Asparagus 
-                //                                         returns positive number
-                // .sort()|| Asparagus, Corn
+    //        ( cornObject, asparagusObject) => "Corn".localeCompare("Asparagus")
+    //                                                .localeCompare() returns a number. 
+    //                                                 Negative(falsy) if a comes before b, 0 if a === b, 
+    //                                                 positive(truthy) if a comes after b
+    //                                      => Corn > Asparagus 
+    //                                         returns positive number
+    // .sort()|| Asparagus, Corn
 
     // if a's letter comes before b's letter in the alphabet, return -1 (ex. "apple".localeCompare("bannana"))
     // if a's letter comes after b's letter in the alphabet, return 1 (ex. "bannana".localeCompare("apple"))
     // if a's letter and b's letter is the same in the alphabet, return 0 (ex. "apple".localeCompare("apple"))
-    
+
     // const sortedHarvestArray = harvestArray.sort(
     //     (a, b) => a.type.localeCompare(b.type) //callback function for .sort(), returns value based on which argument comes first
     // ) 
-    
 
 
-   
+
+
 
 } 
