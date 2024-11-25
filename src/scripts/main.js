@@ -9,6 +9,7 @@ const yearlyPlan = createPlan() // returns 3 arrays with randomized crop order
 plantSeeds(yearlyPlan) // send yearly plan to tractor.js
 const seedsInFieldArray = usePlants() // retrieve planted field from field.js
 const harvestedPlantArray = harvestPlants(seedsInFieldArray) // send field array to be harvested
+
 const finalHTML = Catalog(harvestedPlantArray) // send harvested plants to the Catalog, return html
 
 const targetElement = document.querySelector(".container")

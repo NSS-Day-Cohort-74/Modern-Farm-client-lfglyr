@@ -12,11 +12,7 @@ export const barn = () => {
             return storageBarn[storageBarn.length - 1].type
         },
         isEmpty: () => {
-            let empty = true
-            if (storageBarn.length != 0) {
-                empty = false
-            }
-            return empty
+            return (storageBarn.length === 0)
         },
 
     }
