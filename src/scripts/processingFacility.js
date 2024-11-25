@@ -1,34 +1,16 @@
-let conveyorBeltArray = []
 // [cornObject, asparagusObject, soybeanObject]
 
-
-export const processor = () => {
-    return {
-        enqueue: (crop) => {
-            //A function that accepts a crop that was removed from the storage barn as a parameter and adds it to the conveyor belt headed into the processing facility.,
-            conveyorBeltArray.push(crop)
-        },
-        dequeue: () => {
-            //A function that accepts no parameters and returns the next crop on the conveyor belt to be processed. That crop is removed from the queue.,
-            return conveyorBeltArray.shift();
-        },
-        next: () => {
-            //A function that returns the name of the next crop that will be processed, but does not remove it from the conveyor belt. ,
-            return conveyorBeltArray[0].type
-        },
-        last: () => {
-            //A function that returns the name of the last crop that was added to the conveyor belt.,
-            return conveyorBeltArray[conveyorBeltArray.length - 1].type
-        },
-        isEmpty: () => {
-            //A function that return a boolean. True if there are no crops on the conveyor belt. False if there are crops on the conveyor belt.,
-            return (conveyorBeltArray.length === 0)
-        },
-        size: () => {
-            //A function that returns an integer representing the number of items currently on the conveyor belt. ,
-            return conveyorBeltArray.length
-        }
+export const processor = (foodObject) => {
+    const processedGoodsList = {
+        "Soybean": "Bean Paste",
+        "Corn": "Corn meal",
+        "Sunflower": "Sunflower Oil",
+        "Asparagus": "Pickled Asparagus",
+        "Wheat": "Flour",
+        "Potato": "Potato Chips"
     }
+
+    return processedGoodsList[foodObject.type]
 }
 
 

@@ -2,7 +2,11 @@ import { Catalog } from "./catalog.js"
 import { usePlants } from "./field.js"
 import { harvestPlants } from "./harvester.js"
 import { createPlan } from "./plan.js"
+import { processor } from "./processingFacility.js"
 import { plantSeeds } from "./tractor.js"
+import { barn } from "./storageBarn.js"
+import { conveyorBelt } from "./conveyorBelt.js"
+import { farmStore } from "./farmStore.js"
 
 
 const yearlyPlan = createPlan() // returns 3 arrays with randomized crop order
@@ -10,7 +14,51 @@ plantSeeds(yearlyPlan) // send yearly plan to tractor.js
 const seedsInFieldArray = usePlants() // retrieve planted field from field.js
 const harvestedPlantArray = harvestPlants(seedsInFieldArray) // send field array to be harvested
 
-const finalHTML = Catalog(harvestedPlantArray) // send harvested plants to the Catalog, return html
+// Process Harvested Goods
+// take stuff from storage barn and put into processor, while somethere there put on belt
+// when processor reaches 3 objects, process item and put in the farm store (could use an object?)
+// check when storage barn is empty, then console.log it
+// when processor is empty, console.log that farm store inventory is full and ready
+
+do {
+
+    if (conveyorBelt.size() < 3 && !barn.isEmpty()) {
+        conveyorBelt.enqueue(barn.pop())
+    }
+
+    if (barn.isEmpty()) {
+        console.log("The Storage Barn is ready for new crops")
+    }
+
+    if (!conveyorBelt.isEmpty()) {
+        let processedGood = processor(conveyorBelt.dequeue())
+        farmStore(processedGood) // farm store manages inventory
+    }
+
+    if (conveyorBelt.isEmpty() && barn.isEmpty()) {
+        console.log("Farm Store inventory is full and ready to open for business")
+    }
+
+} while (!barn.isEmpty());
+
+
+
+// while (processingFacility < 3) {
+//     while (!storageBarn.isEmpty() && processingFacility.size() < 3) {
+//         let lastItem = storageBarn.pop()
+//         processingFacility.enqueue(lastItem)
+//     }
+// }
+
+
+// dequeue from processing, convert to processed good, send to farm store
+
+
+
+
+
+
+const finalHTML = Catalog(farmStore()) // send harvested plants to the Catalog, return html
 
 const targetElement = document.querySelector(".container")
 targetElement.innerHTML = finalHTML // send html to DOM

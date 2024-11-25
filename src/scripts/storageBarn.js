@@ -1,21 +1,19 @@
-let storageBarn = []
 
-export const barn = () => {
-    return {
-        push: (crop) => {
-            storageBarn.push(crop)
-        },
-        pop: () => {
-            return storageBarn.pop()
-        },
-        peek: () => {
-            return storageBarn[storageBarn.length - 1].type
-        },
-        isEmpty: () => {
-            return (storageBarn.length === 0)
-        },
+export const barn = {
+    items: [],
+    push: (crop) => {
+        barn.items.push(crop)
+    },
+    pop: () => {
+        return barn.items.pop()
+    },
+    peek: () => {
+        return barn.items[barn.items.length - 1].type
+    },
+    isEmpty: () => {
+        return (barn.items.length === 0)
+    },
 
-    }
 }
 
 

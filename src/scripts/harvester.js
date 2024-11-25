@@ -12,14 +12,14 @@ export const harvestPlants = (seedsInFieldArray) => {
             for (let i = 0; i < seedObject.output / 2; i++) {
                 seedObject.id = id
                 id++
-                barn().push(seedObject)
+                barn.push(seedObject)
                 harvestArray.push(seedObject)
             }
         } else {
             for (let i = 0; i < seedObject.output; i++) {
                 seedObject.id = id
                 id++
-                barn().push(seedObject)
+                barn.push(seedObject)
                 harvestArray.push(seedObject)
             }
         }
