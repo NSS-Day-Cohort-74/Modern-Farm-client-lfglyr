@@ -12,7 +12,7 @@ const plantEmojis = {
     wheat: "🍞"
 }
 
-export const Catalog = (harvestedPlantArray) => {
+export const Catalog = (goodsArray) => {
 
 
     let plantHTML = ""
@@ -21,7 +21,7 @@ export const Catalog = (harvestedPlantArray) => {
     // Use an object to store plant types as keys and emoji as values
     // Use Key value pairs to access proper plants
 
-    for (const plant of harvestedPlantArray) {
+    for (const plant of goodsArray) {
         if (typeof plant === 'object') {
             const plantType = plant.type.toLowerCase()
             plantHTML += `<section class="plant-type">${plantEmojis[plantType]}</section>`
@@ -39,10 +39,11 @@ export const Catalog = (harvestedPlantArray) => {
     // if not in plantCount object, add new property with value of one
     // if in plantCount, increment value by one.
 
-    if (typeof harvestedPlantArray[0] === 'object') {
+    // BUILD OUT TABLE OF RAW GOOD TOTALs
+    if (typeof goodsArray[0] === 'object') {
         const plantCount = {} // will hold counts of plants
 
-        for (const plantObject of harvestedPlantArray) {
+        for (const plantObject of goodsArray) {
 
             const plantType = plantObject.type.toLowerCase() // grab the plant type and convert to lowercase
 
