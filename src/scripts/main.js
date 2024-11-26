@@ -12,13 +12,15 @@ import { farmStore } from "./farmStore.js"
 const yearlyPlan = createPlan() // returns 3 arrays with randomized crop order
 plantSeeds(yearlyPlan) // send yearly plan to tractor.js
 const seedsInFieldArray = usePlants() // retrieve planted field from field.js
-const harvestedPlantArray = harvestPlants(seedsInFieldArray) // send field array to be harvested
+const harvestedPlantArray = harvestPlants(seedsInFieldArray) // return array to send to Catalog
 
-// Process Harvested Goods
-// take stuff from storage barn and put into processor, while somethere there put on belt
-// when processor reaches 3 objects, process item and put in the farm store (could use an object?)
-// check when storage barn is empty, then console.log it
-// when processor is empty, console.log that farm store inventory is full and ready
+/*
+Process Harvested Goods
+take stuff from storage barn and put into processor, while somethere there put on belt
+when processor reaches 3 objects, process item and put in the farm store (could use an object?)
+check when storage barn is empty, then console.log it
+when processor is empty, console.log that farm store inventory is full and ready 
+*/
 
 do {
 
@@ -50,6 +52,10 @@ const targetElement = document.querySelector(".container")
 targetElement.innerHTML = finalHTML // send html to DOM
 
 
+/* --------------------------------------------------------------------------- */
+
+// PROJECT NOTES:
+
 /*
 MAIN ALGORITHM
 yearlyPlan = createPlan
@@ -60,8 +66,6 @@ harvestedPlants = harvestPlants(fieldArrays)
 catalogHTML = catalog(harvestedPlants)
 send catalogHTML to DOM with .innerHTML property
 */
-
-/* --------------------------------------------------------------------------- */
 
 /*
 PROJECT PROCESS NOTES:
