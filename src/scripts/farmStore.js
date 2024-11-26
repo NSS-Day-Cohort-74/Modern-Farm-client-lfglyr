@@ -1,7 +1,19 @@
-const farmStoreInventory = []
+// const farmStoreInventory = []
 
-export const farmStore = (processedGood) => {
-    farmStoreInventory.push(processedGood)
+// export const farmStore = (processedGood) => {
+//     farmStoreInventory.push(processedGood)
 
-    return farmStoreInventory
+//     return farmStoreInventory
+// }
+
+// farmStore()
+
+export const farmStore = {
+    items: [],
+    push: (item) => {
+        farmStore.items.push(item)
+    },
+    getInventory: () => {
+        return farmStore.items
+    }
 }

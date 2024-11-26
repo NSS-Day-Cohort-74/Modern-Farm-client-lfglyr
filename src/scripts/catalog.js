@@ -39,42 +39,46 @@ export const Catalog = (harvestedPlantArray) => {
     // if not in plantCount object, add new property with value of one
     // if in plantCount, increment value by one.
 
+    if (typeof harvestedPlantArray[0] === 'object') {
+        const plantCount = {} // will hold counts of plants
 
-    //     const plantCount = {} // will hold counts of plants
+        for (const plantObject of harvestedPlantArray) {
 
-    //     for (const plantObject of harvestedPlantArray) {
+            const plantType = plantObject.type.toLowerCase() // grab the plant type and convert to lowercase
 
-    //         const plantType = plantObject.type.toLowerCase() // grab the plant type and convert to lowercase
+            if (plantCount.hasOwnProperty(plantType)) {
+                plantCount[plantType] += 1
+            } else {
+                plantCount[plantType] = 1
+            }
+        }
 
-    //         if (plantCount.hasOwnProperty(plantType)) {
-    //             plantCount[plantType] += 1
-    //         } else {
-    //             plantCount[plantType] = 1
-    //         }
-    //     }
+        // Build Table HTML after plant display
+        plantHTML += `
+        <div class="plant-table">
+            <table>
+                <tr>
+                    <th>Food</th>
+                    <th>Quantity</th>
+                </tr>`
 
-    //     // Build Table HTML after plant display
-    //     plantHTML += `
-    //     <div class="plant-table">
-    //         <table>
-    //             <tr>
-    //                 <th>Food</th>
-    //                 <th>Quantity</th>
-    //             </tr>`
+        // iterate through plantCount object
+        for (const key in plantCount) {
+            plantHTML += `
+            <tr>
+                <td>${key}</td>
+                <td>${plantCount[key]}</td>
+            </tr>
+        `
+        }
 
-    //     // iterate through plantCount object
-    //     for (const key in plantCount) {
-    //         plantHTML += `
-    //         <tr>
-    //             <td>${key}</td>
-    //             <td>${plantCount[key]}</td>
-    //         </tr>
-    //     `
-    //     }
+        plantHTML += `
+                </table>
+            </div>
+        `
 
-    //     plantHTML += `
-    //             </table>
-    //         </div>
-    //     `
+    }
+
+
     return plantHTML
 }

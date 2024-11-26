@@ -25,46 +25,46 @@ yearlyPlan =
     ]
 */
 // using an object lookup
-// export const plantSeeds = (yearlyPlan) => { //intaking yearly plan
-//     for (const cropRow of yearlyPlan) { //iterating yearly plan
-//         // cropRow = ["Corn", x, x, x, x, x] (first itteration)- index 0
-//         for (const seedString of cropRow) { //iterating through each row in yearlyplan
-//             // seedString = corn (first itteration) - index 0
-//             const getSeedFunctionName = seedGenerators[seedString.toLowerCase()] // get proper seed generator
-//             const seedToPlantObject = getSeedFunctionName() // invoke seed function, returns seed object
-//             addPlant(seedToPlantObject) // send seed object to field array
-//         }
-//     }
-// }
-
-// as a switch statement
-export const plantSeeds = (yearlyPlan) => {
-    for (const cropRow of yearlyPlan) {
-        for (const seedString of cropRow) {
-            switch (seedString) {
-                case "Asparagus":
-                    addPlant(createAsparagus())
-                    break;
-                case "Corn":
-                    addPlant(createCorn())
-                    break;
-                case "Potato":
-                    addPlant(createPotato())
-                    break;
-                case "Soybean":
-                    addPlant(createSoybean())
-                    break;
-                case "Sunflower":
-                    addPlant(createSunflower())
-                    break;
-                case "Wheat":
-                    addPlant(createWheat())
-                    break;
-            }
-
+export const plantSeeds = (yearlyPlan) => { //intaking yearly plan
+    for (const cropRow of yearlyPlan) { //iterating yearly plan
+        // cropRow = ["Corn", x, x, x, x, x] (first itteration)- index 0
+        for (const seedString of cropRow) { //iterating through each row in yearlyplan
+            // seedString = corn (first itteration) - index 0
+            const getSeedFunctionName = seedGenerators[seedString.toLowerCase()] // get proper seed generator
+            const seedToPlantObject = getSeedFunctionName() // invoke seed function, returns seed object
+            addPlant(seedToPlantObject) // send seed object to field array
         }
     }
 }
+
+// as a switch statement
+// export const plantSeeds = (yearlyPlan) => {
+//     for (const cropRow of yearlyPlan) {
+//         for (const seedString of cropRow) {
+//             switch (seedString) {
+//                 case "Asparagus":
+//                     addPlant(createAsparagus())
+//                     break;
+//                 case "Corn":
+//                     addPlant(createCorn())
+//                     break;
+//                 case "Potato":
+//                     addPlant(createPotato())
+//                     break;
+//                 case "Soybean":
+//                     addPlant(createSoybean())
+//                     break;
+//                 case "Sunflower":
+//                     addPlant(createSunflower())
+//                     break;
+//                 case "Wheat":
+//                     addPlant(createWheat())
+//                     break;
+//             }
+
+//         }
+//     }
+// }
 
 
 

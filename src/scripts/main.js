@@ -32,7 +32,7 @@ do {
 
     if (!conveyorBelt.isEmpty()) {
         let processedGood = processor(conveyorBelt.dequeue())
-        farmStore(processedGood) // farm store manages inventory
+        farmStore.push(processedGood) // farm store manages inventory
     }
 
     if (conveyorBelt.isEmpty() && barn.isEmpty()) {
@@ -42,23 +42,9 @@ do {
 } while (!barn.isEmpty());
 
 
-
-// while (processingFacility < 3) {
-//     while (!storageBarn.isEmpty() && processingFacility.size() < 3) {
-//         let lastItem = storageBarn.pop()
-//         processingFacility.enqueue(lastItem)
-//     }
-// }
-
-
-// dequeue from processing, convert to processed good, send to farm store
-
-
-
-
-
-
-const finalHTML = Catalog(farmStore()) // send harvested plants to the Catalog, return html
+// TOGGLE WHICH OUTPUT TO SEE:
+const finalHTML = Catalog(farmStore.getInventory()) // send processed goods to the Catalog, return html
+// const finalHTML = Catalog(harvestedPlantArray) // send raw plants to the Catalog, return html
 
 const targetElement = document.querySelector(".container")
 targetElement.innerHTML = finalHTML // send html to DOM
