@@ -12,7 +12,7 @@ import { farmStore } from "./farmStore.js"
 const yearlyPlan = createPlan() // returns 3 arrays with randomized crop order
 plantSeeds(yearlyPlan) // send yearly plan to tractor.js
 const seedsInFieldArray = usePlants() // retrieve planted field from field.js
-const harvestedPlantArray = harvestPlants(seedsInFieldArray) // return array to send to Catalog
+const harvestedPlantArray = harvestPlants(seedsInFieldArray) // harvest plants, return array to send to Catalog
 
 /*
 Process Harvested Goods
